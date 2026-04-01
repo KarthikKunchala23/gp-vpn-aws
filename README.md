@@ -25,18 +25,22 @@ This module is designed for **multi-team usage**, enabling any VPC to integrate 
 
 ```hcl
 module "vpn" {
-  source = "git::https://github.com/your-org/terraform-aws-site-to-site-vpn.git//modules/vpn?ref=v1.0.0"
+    source = "git::https://github.com/KarthikKunchala23/gp-vpn-aws.git//modules/vpn?ref=v1.0.0"
 
-  team_name = "network-team"
+    team_name = "gp"
+    network_config = {
+        vpc_id = "vpc-xxxx"
+        vpc_cidr = "10.0.0.0/16"
+        subnet_ids = "subnet-xxx"
+    }
+    vpn_config = {
+        customer_gateway_ip = "185.127.65.103"
+        bgp_asn = 65001
+    }
+    enable_static_route = false
+    static_routes = var.static_routes
+    route_table_ids = ["rtb-123"]
 
-  enable_static_routes = false
-
-  route_table_ids = ["rtb-123456", "rtb-789012"]
-
-  vpn_config = {
-    customer_gateway_ip = "1.2.3.4"
-    bgp_asn             = 65000
-  }
 }
 ```
 
@@ -46,23 +50,22 @@ module "vpn" {
 
 ```hcl
 module "vpn" {
-  source = "git::https://github.com/your-org/terraform-aws-site-to-site-vpn.git//modules/vpn?ref=v1.0.0"
+    source = "git::https://github.com/KarthikKunchala23/gp-vpn-aws.git//modules/vpn?ref=v1.0.0"
 
-  team_name = "network-team"
+    team_name = "gp"
+    network_config = {
+        vpc_id = "vpc-xxxx"
+        vpc_cidr = "10.0.0.0/16"
+        subnet_ids = "subnet-xxx"
+    }
+    vpn_config = {
+        customer_gateway_ip = "185.127.65.103"
+        bgp_asn = 6500
+    }
+    enable_static_route = true
+    static_routes = ["192.168.0.0/24"]
+    route_table_ids = ["rtb=1234"]
 
-  enable_static_routes = true
-
-  route_table_ids = ["rtb-123456"]
-
-  static_routes = [
-    "192.168.1.0/24",
-    "172.16.0.0/16"
-  ]
-
-  vpn_config = {
-    customer_gateway_ip = "1.2.3.4"
-    bgp_asn             = 65000
-  }
 }
 ```
 
@@ -97,6 +100,7 @@ Private Subnets / Workloads
 | Name                 | Description                    | Type         | Required |
 | -------------------- | ------------------------------ | ------------ | -------- |
 | team_name            | Name prefix for resources      | string       | ✅        |
+| network_config       | aws network PN configuration   | object       | ✅        |
 | enable_static_routes | Enable static routing          | bool         | ✅        |
 | route_table_ids      | Route tables for propagation   | list(string) | ✅        |
 | static_routes        | CIDR blocks for static routing | list(string) | ❌        |
@@ -122,8 +126,6 @@ Private Subnets / Workloads
 | customer_gateway_id   | Customer Gateway ID      |
 | tunnel1_address       | Tunnel 1 public IP       |
 | tunnel2_address       | Tunnel 2 public IP       |
-| tunnel1_preshared_key | Tunnel 1 PSK (sensitive) |
-| tunnel2_preshared_key | Tunnel 2 PSK (sensitive) |
 
 ---
 
