@@ -8,3 +8,6 @@ on:
 jobs:
   release:
     uses: KarthikKunchala23/gp-github-workflows/.github/workflows/terraform-release.yaml@main
+    permissions:
+      id-token: write
+      contents: read
