@@ -16,7 +16,7 @@ on:
         default: ''
         type: string
       working_directory:
-        default: terraform/${{ github.event.inputs.subdirectory }}
+        default: ''
         type: string
       aws_region:
         default: ap-south-1
@@ -37,6 +37,6 @@ jobs:
       contents: read
 
     with:
-      working_directory: ${{ github.event.inputs.working_directory || 'terraform' }}
+      working_directory: ${{ github.event.inputs.subdirectory != '' && format('terraform/{0}', github.event.inputs.subdirectory) || 'terraform' }}
       aws_region: ${{ github.event.inputs.aws_region || 'ap-south-1' }}
       environment: ${{ github.event.inputs.environment || 'dev' }}
