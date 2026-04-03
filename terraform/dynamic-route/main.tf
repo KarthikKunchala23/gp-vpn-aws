@@ -1,5 +1,5 @@
 module "vpn" {
-    source = "git::https://github.com/KarthikKunchala23/gp-vpn-aws.git//modules/vpn?ref=v1.0.0"
+    source = "git::https://github.com/KarthikKunchala23/gp-vpn-aws.git//modules/vpn?ref=v1.1.1"
 
     team_name = var.team_name
     network_config = {
