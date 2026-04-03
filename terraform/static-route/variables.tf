@@ -4,23 +4,34 @@ variable "team_name" {
   default = "gp"
 }
 
-variable "network_config" {
-  description = "VPC details where VPN will be attached"
-
-  type = object({
-    vpc_id = "vpc-0004d3466fc741795"
-    vpc_cidr = "10.20.0.0/16"
-    subnet_ids = ["subnet-02c09ab23118357e6"]
-  })
+variable "vpc_id" {
+  description = "VPC ID where VPN will be attached"
+  type        = string
+  default     = "vpc-0004d3466fc741795"
 }
 
-variable "vpn_config" {
-  description = "Customer gateway and VPN configuration"
+variable "vpc_cidr" {
+  description = "CIDR block of the VPC"
+  type        = string
+  default     = "10.20.0.0/16"
+}
 
-  type = object({
-    customer_gateway_ip = "10.0.0.1"
-    bgp_asn             = 65000
-  })
+variable "subnet_ids" {
+  description = "Subnet IDs within the VPC for VPN attachment"
+  type        = list(string)
+  default     = ["subnet-02c09ab23118357e6"]  
+}
+
+variable "customer_gateway_ip" {
+  description = "Public IP address of the customer gateway"
+  type        = string
+  default     = "10.0.0.1"
+}
+
+variable "bgp_asn" {
+  description = "BGP ASN for the VPN connection"
+  type        = number
+  default     = 65000
 }
 
 variable "enable_static_route" {
@@ -37,5 +48,6 @@ variable "static_routes" {
 
 variable "route_table_ids" {
   description = "Route tables for VPN propagation"
-  type        = ["rtb-022e4a40cca43caa8"]
+  type        = list(string)
+  default     = ["rtb-022e4a40cca43caa8"]
 }
