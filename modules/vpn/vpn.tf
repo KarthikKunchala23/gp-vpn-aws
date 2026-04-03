@@ -39,8 +39,8 @@ resource "aws_vpn_connection_route" "gp-vpn-connection-route" {
 }
 
 # If dynamic routing is enabled, create route propagation for the VPN connection
-resource "aws_route_propagation" "gp-vpn-route-propagation" {
-  for_each = var.enable_static_route ? {} : toset(var.route_table_ids)
+resource "aws_vpn_gateway_route_propagation" "gp-vpn-route-propagation" {
+  for_each = var.enable_static_route ? toset([]) : toset(var.route_table_ids)
   route_table_id = each.value
-  gateway_id = aws_vpn_gateway.gp-vpn-gw.id
+  vpn_gateway_id = aws_vpn_gateway.gp-vpn-gw.id
 }
