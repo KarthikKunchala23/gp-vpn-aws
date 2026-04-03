@@ -1,0 +1,10 @@
+name: Call Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    uses: KarthikKunchala23/gp-github-workflows/.github/workflows/terraform-release.yaml@main
