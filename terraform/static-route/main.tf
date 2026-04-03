@@ -1,7 +1,7 @@
 module "vpn_static_routes" {
     source = "git::https://github.com/KarthikKunchala23/gp-vpn-aws.git//modules/vpn?ref=v1.0.0"
 
-    team_name = "gp"
+    team_name = var.team_name
     network_config = {
         vpc_id = var.vpc_id
         vpc_cidr = var.vpc_cidr

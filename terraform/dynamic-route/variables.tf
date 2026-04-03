@@ -1,3 +1,8 @@
+variable "team_name" {
+  description = "Name of the team responsible for the VPN"
+  type        = string
+  default = "gp"
+}
 variable "vpc_id" {
   description = "VPC ID where the VPN gateway will be attached"
   type = string
