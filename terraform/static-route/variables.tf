@@ -25,7 +25,7 @@ variable "subnet_ids" {
 variable "customer_gateway_ip" {
   description = "Public IP address of the customer gateway"
   type        = string
-  default     = "10.0.0.1"
+  default     = "115.98.32.72"
 }
 
 variable "bgp_asn" {
