@@ -45,24 +45,23 @@ module "vpn" {
 ## 🔁 Static Routing Example
 
 ```hcl
-module "vpn" {
-  source = "git::https://github.com/your-org/terraform-aws-site-to-site-vpn.git//modules/vpn?ref=v1.1.5"
+module "vpn_static_routes" {
+    source = "git::https://github.com/KarthikKunchala23/gp-vpn-aws.git//modules/vpn?ref=v1.1.5"
 
-  team_name = "network-team"
+    team_name = "gp-analyzer"
+    network_config = {
+        vpc_id = "vpc-xxxxx"
+        vpc_cidr = "10.0.0.0/16"
+        subnet_ids = ["subnet-xxxx"]
+    }
 
-  enable_static_routes = true
-
-  route_table_ids = ["rtb-123456"]
-
-  static_routes = [
-    "192.168.1.0/24",
-    "172.16.0.0/16"
-  ]
-
-  vpn_config = {
-    customer_gateway_ip = "1.2.3.4"
-    bgp_asn             = 65000
-  }
+    vpn_config = {
+        customer_gateway_ip = "1.2.5.6"
+        bgp_asn = 65000
+    }
+    enable_static_route = true
+    static_routes = 
+    route_table_ids = ["rtb-xxxx"]
 }
 ```
 
