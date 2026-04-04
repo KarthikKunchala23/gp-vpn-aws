@@ -36,7 +36,7 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [1.1.0] - TBD
+## [2.0.0] - TBD
 
 ### Planned
 - Transit Gateway support
