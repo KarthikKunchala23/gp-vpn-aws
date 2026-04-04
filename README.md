@@ -25,7 +25,7 @@ This module is designed for **multi-team usage**, enabling any VPC to integrate 
 
 ```hcl
 module "vpn" {
-  source = "git::https://github.com/your-org/terraform-aws-site-to-site-vpn.git//modules/vpn?ref=v1.0.0"
+  source = "git::https://github.com/your-org/terraform-aws-site-to-site-vpn.git//modules/vpn?ref=v1.1.5"
 
   team_name = "network-team"
 
@@ -46,7 +46,7 @@ module "vpn" {
 
 ```hcl
 module "vpn" {
-  source = "git::https://github.com/your-org/terraform-aws-site-to-site-vpn.git//modules/vpn?ref=v1.0.0"
+  source = "git::https://github.com/your-org/terraform-aws-site-to-site-vpn.git//modules/vpn?ref=v1.1.5"
 
   team_name = "network-team"
 
@@ -101,6 +101,7 @@ Private Subnets / Workloads
 | route_table_ids      | Route tables for propagation   | list(string) | ✅        |
 | static_routes        | CIDR blocks for static routing | list(string) | ❌        |
 | vpn_config           | VPN configuration object       | object       | ✅        |
+| network_config       | Network configuration object   | object       | ✅        |
 
 ---
 
@@ -122,8 +123,7 @@ Private Subnets / Workloads
 | customer_gateway_id   | Customer Gateway ID      |
 | tunnel1_address       | Tunnel 1 public IP       |
 | tunnel2_address       | Tunnel 2 public IP       |
-| tunnel1_preshared_key | Tunnel 1 PSK (sensitive) |
-| tunnel2_preshared_key | Tunnel 2 PSK (sensitive) |
+
 
 ---
 
@@ -165,8 +165,6 @@ This module is designed to work with **GitHub reusable workflows**, ensuring:
 
 * Terraform format validation
 * Code validation
-* Linting (TFLint)
-* Security scanning (tfsec)
 * Automated versioning (semantic-release)
 
 ---
