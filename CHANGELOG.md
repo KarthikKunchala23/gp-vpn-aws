@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/KarthikKunchala23/gp-vpn-aws/compare/v1.1.2...v1.1.3) (2026-04-04)
+
+
+### Bug Fixes
+
+* **stateFile:** Added Backend state config ([#9](https://github.com/KarthikKunchala23/gp-vpn-aws/issues/9)) ([564c872](https://github.com/KarthikKunchala23/gp-vpn-aws/commit/564c872b677ca5cca040eafba176d4c83ef5ee77))
+
 ## [1.1.2](https://github.com/KarthikKunchala23/gp-vpn-aws/compare/v1.1.1...v1.1.2) (2026-04-04)
 
 
