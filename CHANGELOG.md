@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/KarthikKunchala23/gp-vpn-aws/compare/v1.1.3...v1.1.4) (2026-04-04)
+
+
+### Bug Fixes
+
+* **ip:** added publci ip and version tag changed ([#11](https://github.com/KarthikKunchala23/gp-vpn-aws/issues/11)) ([43e1277](https://github.com/KarthikKunchala23/gp-vpn-aws/commit/43e127782a9aaf84327a70ab4633fa33c23af565))
+
 ## [1.1.3](https://github.com/KarthikKunchala23/gp-vpn-aws/compare/v1.1.2...v1.1.3) (2026-04-04)
 
 
