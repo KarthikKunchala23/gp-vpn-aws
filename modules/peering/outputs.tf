@@ -1,0 +1,4 @@
+output "vpc-peer-id" {
+  description = "The ID of the VPC peering connection"
+  value       = aws_vpc_peering_connection.gp-vpc-peering.id
+}
