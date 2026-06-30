@@ -1,3 +1,13 @@
+# 1.0.0 (2026-06-30)
+
+
+### Bug Fixes
+
+* **ip:** added publci ip and version tag changed ([#11](https://github.com/KarthikKunchala23/gp-vpn-aws/issues/11)) ([26f0691](https://github.com/KarthikKunchala23/gp-vpn-aws/commit/26f0691496d1d26cc41274ca9ba4a3a470900ab2))
+* **stateFile:** Added Backend state config ([#9](https://github.com/KarthikKunchala23/gp-vpn-aws/issues/9)) ([d228e52](https://github.com/KarthikKunchala23/gp-vpn-aws/commit/d228e525bbd0a422b688ee247e7a34baed525b4a))
+* **version:** version tag changed ([5ed9403](https://github.com/KarthikKunchala23/gp-vpn-aws/commit/5ed940303adb80b4ca0f6e95bac2ff73aaf1c6f3))
+* **workflow:** data block added for dummy test and workflow auto trigger removed ([5a38b40](https://github.com/KarthikKunchala23/gp-vpn-aws/commit/5a38b400f747dd00786ddf4d3a41a8fb63ce7bf2))
+
 # 1.0.0 (2026-06-27)
 
 
